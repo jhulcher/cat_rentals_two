@@ -9,6 +9,8 @@ class User < ActiveRecord::Base
 
   has_many :cat_rental_requests
 
+  has_many :permanent_cookies
+
   after_initialize do
     self.session_token ||= generate_session_token
   end

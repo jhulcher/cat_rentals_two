@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151119004652) do
+ActiveRecord::Schema.define(version: 20151119013052) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,16 @@ ActiveRecord::Schema.define(version: 20151119004652) do
   end
 
   add_index "cats", ["user_id"], name: "index_cats_on_user_id", using: :btree
+
+  create_table "permanent_cookies", force: true do |t|
+    t.string   "location",   null: false
+    t.string   "device",     null: false
+    t.integer  "user_id",    null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "permanent_cookies", ["user_id"], name: "index_permanent_cookies_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "user_name",       null: false

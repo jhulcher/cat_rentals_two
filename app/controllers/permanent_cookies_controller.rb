@@ -1,0 +1,2 @@
+class PermanentCookiesController < ApplicationController
+end

@@ -11,6 +11,7 @@ class UsersController < ApplicationController
   end
 
   def create
+    fail
     @user = User.new(user_params)
     if @user.save
       login_user!
